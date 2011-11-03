@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/diagmac2
+# catalog-date 2009-05-17 01:32:22 +0200
+# catalog-license lppl
+# catalog-version 2.1
 Name:		texlive-diagmac2
 Version:	2.1
 Release:	1
@@ -42,6 +48,7 @@ removed.
 %doc %{_texmfdistdir}/doc/latex/diagmac2/doc/diagmac2.tex
 %doc %{_texmfdistdir}/doc/latex/diagmac2/doc/diagmactest.pdf
 %doc %{_texmfdistdir}/doc/latex/diagmac2/doc/diagmactest.tex
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -52,3 +59,5 @@ removed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
