@@ -6,7 +6,7 @@
 # catalog-version 2.1
 Name:		texlive-diagmac2
 Version:	2.1
-Release:	2
+Release:	3
 Summary:	Diagram macros, using pict2e
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/diagmac2
