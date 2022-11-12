@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/diagmac2
-# catalog-date 2009-05-17 01:32:22 +0200
-# catalog-license lppl
-# catalog-version 2.1
 Name:		texlive-diagmac2
-Version:	2.1
-Release:	11
+Version:	15878
+Release:	1
 Summary:	Diagram macros, using pict2e
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/diagmac2
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -24,12 +18,12 @@ using pict2e so that the restrictions on line direction are
 removed.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -42,24 +36,10 @@ removed.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 2.1-2
-+ Revision: 750943
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 2.1-1
-+ Revision: 718225
-- texlive-diagmac2
-- texlive-diagmac2
-- texlive-diagmac2
-- texlive-diagmac2
-
