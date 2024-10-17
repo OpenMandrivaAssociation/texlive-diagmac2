@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Diagram macros, using pict2e
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/diagmac2
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/diagmac2
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.doc.r%{version}.tar.xz
