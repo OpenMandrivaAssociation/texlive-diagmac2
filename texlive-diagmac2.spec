@@ -1,45 +1,23 @@
-Name:		texlive-diagmac2
-Version:	15878
-Release:	2
+%global tl_name diagmac2
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.1
+Release:	%{tl_revision}.1
 Summary:	Diagram macros, using pict2e
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/diagmac2
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.doc.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/diagmac2.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This is a development of the long-established diagmac package,
-using pict2e so that the restrictions on line direction are
-removed.
+This is a development of the long-established diagmac package, using
+pict2e so that the restrictions on line direction are removed.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/diagmac2/diagmac2.sty
-%doc %{_texmfdistdir}/doc/latex/diagmac2/README
-%doc %{_texmfdistdir}/doc/latex/diagmac2/doc/diagmac2.pdf
-%doc %{_texmfdistdir}/doc/latex/diagmac2/doc/diagmac2.tex
-%doc %{_texmfdistdir}/doc/latex/diagmac2/doc/diagmactest.pdf
-%doc %{_texmfdistdir}/doc/latex/diagmac2/doc/diagmactest.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
